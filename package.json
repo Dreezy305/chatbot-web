@@ -1,0 +1,39 @@
+{
+  "name": "chatbot-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Olalekan",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "dev": "yarn clean && parcel src/index.html -p 2001",
+    "build": "yarn clean && parcel build src/index.html",
+    "start": "yarn build && pm2 start client.js -n 'chatbot-web'",
+    "staging": "yarn build && pm2 reload client.js -n 'chatbot-web' --update-env",
+    "production": "yarn build && pm2 reload client.js -n 'chatbot-web' --update-env"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-decorators": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "parcel-bundler": "1.12.3",
+    "sass": "^1.23.7"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "mobx": "^5.15.2",
+    "mobx-react": "^6.1.5",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "react-router-dom": "^5.1.2",
+    "rsuite": "^4.1.4"
+  }
+}
